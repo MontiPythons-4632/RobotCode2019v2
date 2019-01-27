@@ -65,6 +65,7 @@ public class GyroScope extends Subsystem {
     public void periodic() {
         // Put code here to be run every loop
 
+        // Print out the current orientation
         System.out.println("Angle of direction: " + analogGyro1.getAngle());
 
     }
