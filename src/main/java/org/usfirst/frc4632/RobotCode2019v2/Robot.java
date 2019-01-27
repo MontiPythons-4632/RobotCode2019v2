@@ -37,7 +37,6 @@ public class Robot extends TimedRobot {
     public static Drive drive;
     public static GyroScope gyroScope;
     public static ClimberLift climberLift;
-    public static HatchPicker hatchPicker;
     public static ClimberDrive climberDrive;
     public static Elevator elevator;
     public static Pinchie pinchie;
@@ -57,8 +56,6 @@ public class Robot extends TimedRobot {
         gyroScope = new GyroScope();
         climberLift = new ClimberLift();
         SmartDashboard.putData(climberLift);
-        hatchPicker = new HatchPicker();
-        SmartDashboard.putData(hatchPicker);
         climberDrive = new ClimberDrive();
         elevator = new Elevator();
         SmartDashboard.putData(elevator);
