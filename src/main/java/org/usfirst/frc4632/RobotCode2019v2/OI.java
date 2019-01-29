@@ -74,6 +74,8 @@ public class OI {
         SmartDashboard.putData("ClimberLowerFront", new ClimberLowerFront());
         SmartDashboard.putData("ClimberRaiseBack", new ClimberRaiseBack());
         SmartDashboard.putData("ClimberLowerBack", new ClimberLowerBack());
+        SmartDashboard.putData("ClimberRaiseRobot", new ClimberRaise());
+        SmartDashboard.putData("ClimberLowerRobot", new ClimberLower());
         SmartDashboard.putData("ClimberMove", new ClimberMove());
         SmartDashboard.putData("ElevatorRaiseBottom", new ElevatorRaiseBottom());
         SmartDashboard.putData("ElevatorLowerBottom", new ElevatorLowerBottom());

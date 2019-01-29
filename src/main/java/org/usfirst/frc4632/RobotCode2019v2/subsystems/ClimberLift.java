@@ -79,32 +79,72 @@ public class ClimberLift extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    public void raiseOn() {
+    public void raiseFront() {
 
-        System.out.println("Starting ClimberLift Raise On");
+        System.out.println("ClimberLift Front Raise");
     
         // Put Code to start the solenoid
-    
+        front.set(DoubleSolenoid.Value.kForward);
     }
 
-    public void raiseOff() {
+    public void stopFront() {
 
-        System.out.println("Starting ClimberLift Raise Off");
+        System.out.println("ClimberLift Front Stop");
 
-        // Put Code to stop the solenoig
-    
+        // Put Code to stop the solenoid
+        front.set(DoubleSolenoid.Value.kOff);
     }
 
-    public void lowerOn() {
+    public void lowerFront() {
 
-        System.out.println("Starting ClimberLift Lower On");
-    
+        System.out.println("ClimberLift Front Lower");
+        front.set(DoubleSolenoid.Value.kReverse);
     }
 
-    public void lowerOff() {
+    public void raiseBack() {
 
-        System.out.println("Starting ClimberLift Lower Off");
+        System.out.println("ClimberLift Front Raise");
     
+        // Put Code to start the solenoid
+        front.set(DoubleSolenoid.Value.kForward);
     }
+
+    public void stopBack() {
+
+        System.out.println("ClimberLift Front Stop");
+
+        // Put Code to stop the solenoid
+        front.set(DoubleSolenoid.Value.kOff);
+    }
+
+    public void lowerBack() {
+
+        System.out.println("ClimberLift Front Lower");
+        front.set(DoubleSolenoid.Value.kReverse);
+    }
+
+    public void raiseRobot() {
+
+        System.out.println("ClimberLift Raise the Bot");
+        raiseFront();
+        raiseBack();
+
+    }
+
+    public void stopRobot() {
+
+        System.out.println("ClimberLift Stop the Bot");
+        stopFront();
+        stopBack();
+        
+    }
+    public void lowerRobot() {
+
+        System.out.println("ClimberLift Lower the Bot");
+        lowerFront();
+        lowerBack();
+        
+    }
+ 
 }
 
