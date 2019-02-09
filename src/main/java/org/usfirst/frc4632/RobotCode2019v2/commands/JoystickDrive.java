@@ -64,15 +64,29 @@ public class JoystickDrive extends Command {
             turn = 0;
         }
  
-        //using buttons to change sensitivity multiplier
-        double sensitivity = Robot.drive.normal; //default value
+        //Recieve and interpret button inputs
 
-        if(joystick.getRawButton(2)){
+        // fast and slow sensitivity
+        double sensitivity = Robot.drive.normal; 
+
+        if(joystick.getRawButton(2)) {
             sensitivity = Robot.drive.slow;
         }
-        if(joystick.getRawButton(3)){
+
+        if(joystick.getRawButton(3)) {
             sensitivity = Robot.drive.fast;
         }
+
+        // turnDeg
+        if( !Robot.drive.isTurning() ) {
+            if(joystick.getRawButton(8)) {
+                Robot.drive.turnDeg(-20);
+            }
+            if(joystick.getRawButton(9)) {
+                Robot.drive.turnDeg(20);
+            }
+        }
+
         if(joystick.getRawButton(6)){
             Robot.climberLift.raiseAll();
         }
@@ -84,7 +98,7 @@ public class JoystickDrive extends Command {
         }
 
         /* drive robot */
-        Robot.drive.arcade(forw * sensitivity, turn * sensitivity);
+        Robot.drive.arcade(forw * sensitivity, 0.75 * turn * sensitivity);
 
         /*
          * [2] Make sure Gamepad Forward is positive for FORWARD, and GZ is positive for
