@@ -110,8 +110,6 @@ public class Drive extends Subsystem {
         rightBack.setSensorPhase(true);
         leftBack.setSensorPhase(true);
         
-        // Initialize Turning
-        this.isTurning = false;
 
     }
 
@@ -125,6 +123,8 @@ public class Drive extends Subsystem {
         // Set the default command for a subsystem here.
         // setDefaultCommand(new MySpecialCommand());
         
+        // Initialize Turning
+        this.isTurning = false;
     }
 
     @Override
@@ -193,9 +193,9 @@ public class Drive extends Subsystem {
         this.pigeon.getRawGyro(xyz_dps);
         this.pigeon.getYawPitchRoll(ypr_deg);
         SmartDashboard.putNumber("Compass",this.pigeon.getAbsoluteCompassHeading());
-        this.currX = ypr_deg[0];
-        //this.currY = ypr_deg[1];
-        //this.currZ = ypr_deg[2];
+        this.currX = ypr_deg[0] % 360;
+        //this.currY = ypr_deg[1] % 360;
+        //this.currZ = ypr_deg[2] % 360;
 
         SmartDashboard.putNumber("xDirection", Math.round(this.currX*100)/100);
         //SmartDashboard.putNumber("yDirection", Math.round(this.currY*100)/100);
