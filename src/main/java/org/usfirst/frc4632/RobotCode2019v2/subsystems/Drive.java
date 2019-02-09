@@ -163,7 +163,7 @@ public class Drive extends Subsystem {
     public void arcade(double speed, double direction) {
 
         /* Takes parameters and sets direction */
-        this.differentialDrive1.arcadeDrive(speed, direction);
+        this.differentialDrive1.arcadeDrive(-1*speed, direction);
 
 
         /* get sensor values */
@@ -208,6 +208,11 @@ public class Drive extends Subsystem {
         this.destX = this.initX + degX;
         this.isTurning = true;
     }
+
+    public void stopTurn() {
+            this.isTurning = false;
+    }
+
     public boolean isTurning() {
         return this.isTurning;
     }

@@ -51,7 +51,6 @@ public class JoystickDrive extends Command {
         String work = "";
 
         /* get gamepad stick values */
-        
         double forw = -1 * joystick.getY(); /* positive is forward */
         double turn = joystick.getX(); /* positive is right */
         boolean btn1 =joystick.getRawButton(1); /* is button is down, print joystick values */
@@ -105,7 +104,7 @@ public class JoystickDrive extends Command {
         }
 
         /* drive robot */
-        Robot.drive.arcade(forw * sensitivity, 0.75 * turn * sensitivity);
+        Robot.drive.arcade(forw * sensitivity, turn * sensitivity);
 
         /*
          * [2] Make sure Gamepad Forward is positive for FORWARD, and GZ is positive for
