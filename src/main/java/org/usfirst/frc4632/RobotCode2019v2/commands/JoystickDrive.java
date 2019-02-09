@@ -53,7 +53,7 @@ public class JoystickDrive extends Command {
         /* get gamepad stick values */
         
         double forw = +1 * joystick.getY(); /* positive is forward */
-        double turn = -1 * joystick.getX(); /* positive is right */
+        double turn = -0.5 * joystick.getX(); /* positive is right */
         boolean btn1 =joystick.getRawButton(1); /* is button is down, print joystick values */
 
         /* deadband gamepad 10% */
@@ -85,6 +85,16 @@ public class JoystickDrive extends Command {
             if(joystick.getRawButton(9)) {
                 Robot.drive.turnDeg(20);
             }
+        }
+
+        if(joystick.getRawButton(6)){
+            Robot.climberLift.raiseAll();
+        }
+        if(joystick.getRawButton(7)){
+            Robot.climberLift.lowerAll();
+        }
+        if(joystick.getRawButton(8)){
+            Robot.climberLift.holdAll();
         }
 
         /* drive robot */
