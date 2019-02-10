@@ -135,7 +135,7 @@ public class ClimberLift extends Subsystem {
 
     public void holdBack() {
         this.back.set(Value.kOff);
-}
+    }
     public void holdAll() {
         this.holdFront();
         this.holdBack();
@@ -145,6 +145,8 @@ public class ClimberLift extends Subsystem {
 
     public RobotStates state() {
         return this.state;
+
     }
+ 
 }
 
