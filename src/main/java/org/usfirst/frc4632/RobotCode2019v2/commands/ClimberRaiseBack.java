@@ -38,12 +38,14 @@ public class ClimberRaiseBack extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-        Robot.climberLift.raiseBack();
+    
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        
+        Robot.climberLift.raiseBack();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -55,7 +57,6 @@ public class ClimberRaiseBack extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
-        Robot.climberLift.holdBack();
     }
 
     // Called when another command which requires one or more of the same

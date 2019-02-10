@@ -67,9 +67,11 @@ public class OI {
 
         // SmartDashboard Buttons
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
-     //   SmartDashboard.putData("JoystickDrive", new JoystickDrive());
-     //   SmartDashboard.putData("PinchieOpen", new PinchieOpen());
-     //   SmartDashboard.putData("PinchieClose", new PinchieClose());
+        // SmartDashboard.putData("JoystickDrive", new JoystickDrive());
+        SmartDashboard.putData("PinchieOpen", new PinchieOpen());
+        SmartDashboard.putData("PinchieClose", new PinchieClose());
+        SmartDashboard.putData("PinchieOpen", new PinchieExtend());
+        SmartDashboard.putData("PinchieClose", new PinchieRetract());
         SmartDashboard.putData("Raise Robot", new RaiseRobot());
         SmartDashboard.putData("Lower Robot", new LowerRobot());
         SmartDashboard.putData("Hold Robot", new HoldRobot());
@@ -78,8 +80,7 @@ public class OI {
         SmartDashboard.putData("ClimberLowerFront", new ClimberLowerFront());
         SmartDashboard.putData("ClimberRaiseBack", new ClimberRaiseBack());
         SmartDashboard.putData("ClimberLowerBack", new ClimberLowerBack());
-        SmartDashboard.putData("ClimberRaiseRobot", new ClimberRaise());
-        SmartDashboard.putData("ClimberLowerRobot", new ClimberLower());
+
         SmartDashboard.putData("ClimberMove", new ClimberMove());
      //   SmartDashboard.putData("ElevatorRaiseBottom", new ElevatorRaiseBottom());
         // SmartDashboard.putData("ElevatorLowerBottom", new ElevatorLowerBottom());

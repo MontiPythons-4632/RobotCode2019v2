@@ -45,7 +45,6 @@ public class HoldRobot extends Command {
     @Override
     protected void execute() {
         
-        Robot.climberLift.holdAll();
     }
 
     // Make this return true when this Command no longer needs to run execute()
