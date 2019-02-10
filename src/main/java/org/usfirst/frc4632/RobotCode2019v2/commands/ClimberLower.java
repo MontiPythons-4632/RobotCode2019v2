@@ -56,7 +56,6 @@ public class ClimberLower extends Command {
     @Override
     protected void end() {
 
-        Robot.climberLift.stopRobot();
     }
 
     // Called when another command which requires one or more of the same

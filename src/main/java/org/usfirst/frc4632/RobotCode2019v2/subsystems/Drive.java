@@ -187,22 +187,7 @@ public class Drive extends Subsystem {
             work += " R sensor is out of phase";
         }
     }
-    // public void updateGyro() {
-
-    //     double[] xyz_dps = new double[3];
-    //     double[] ypr_deg = new double[3];
-
-    //     this.pigeon.getRawGyro(xyz_dps);
-    //     this.pigeon.getYawPitchRoll(ypr_deg);
-    //     SmartDashboard.putNumber("Compass",this.pigeon.getAbsoluteCompassHeading());
-    //     this.currX = ypr_deg[0] % 360;
-    //     //this.currY = ypr_deg[1] % 360;
-    //     //this.currZ = ypr_deg[2] % 360;
-
-    //     SmartDashboard.putNumber("xDirection", Math.round(this.currX*100)/100);
-    //     //SmartDashboard.putNumber("yDirection", Math.round(this.currY*100)/100);
-    //     //SmartDashboard.putNumber("zDirection", Math.round(this.currZ*100)/100);
-    // }
+    
     public void turnDeg( double degX ) {
         this.initX = Robot.nineDOF.getXDirection();
         this.destX = this.initX + degX;

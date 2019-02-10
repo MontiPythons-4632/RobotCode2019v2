@@ -87,10 +87,10 @@ public class JoystickDrive extends Command {
         }
 
         if(joystick.getRawButton(6)){
-            Robot.climberLift.raiseAll();
+            Robot.climberLift.raiseRobot();
         }
         if(joystick.getRawButton(7)){
-            Robot.climberLift.lowerAll();
+            Robot.climberLift.lowerRobot();
         }
         if(joystick.getRawButton(8)){
             Robot.climberLift.holdAll();

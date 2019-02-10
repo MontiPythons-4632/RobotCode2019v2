@@ -71,7 +71,7 @@ public class Robot extends TimedRobot {
 
         joystickDrive = new JoystickDrive();
         climberLift.holdAll();
-        climberLift.lowerAll();
+        climberLift.lowerRobot();
     
 
         // OI must be constructed after subsystems. If the OI creates Commands

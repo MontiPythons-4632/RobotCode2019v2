@@ -45,7 +45,7 @@ public class RaiseRobot extends Command {
     @Override
     protected void execute() {
         
-        Robot.climberLift.raiseAll();
+        Robot.climberLift.raiseRobot();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -57,7 +57,7 @@ public class RaiseRobot extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
-        Robot.climberLift.holdAll();
+      
     }
 
     // Called when another command which requires one or more of the same
