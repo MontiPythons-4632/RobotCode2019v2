@@ -89,26 +89,6 @@ public class ClimberDrive extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
-    // Code to move the climber motors
-   public void slowOn() {
-
-    System.out.println("Starting ClimberDrive slowOn");
-
-
-   }
-    
-   public void on() {
-
-    System.out.println("Starting ClimberDrive On");
-
-
-   }
-
-   public void fastOn() {
-
-    System.out.println("Starting ClimberDrive fastOn");
-
-
-   }
+  
 }
 
