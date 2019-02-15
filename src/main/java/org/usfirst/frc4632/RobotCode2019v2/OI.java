@@ -165,7 +165,7 @@ public class OI {
         if (Math.abs(y) < 0.10) {
             y = 0;
         }
-        return y * this.getForwardSpeed() * -1;
+        return y * this.getForwardSpeed();
     }
 
     public double getSensitivity() {
