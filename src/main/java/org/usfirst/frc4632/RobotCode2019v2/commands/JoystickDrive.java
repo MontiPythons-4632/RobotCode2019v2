@@ -105,6 +105,7 @@ public class JoystickDrive extends Command {
 
         /* drive robot */
         Robot.drive.arcade(forw * sensitivity, turn * sensitivity);
+        Robot.climberDrive.arcade(forw, 0 * sensitivity);
 
         /*
          * [2] Make sure Gamepad Forward is positive for FORWARD, and GZ is positive for
