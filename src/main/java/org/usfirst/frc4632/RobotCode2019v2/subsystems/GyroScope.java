@@ -14,6 +14,7 @@ package org.usfirst.frc4632.RobotCode2019v2.subsystems;
 
 import com.ctre.phoenix.sensors.PigeonIMU;
 
+import org.usfirst.frc4632.RobotCode2019v2.Robot;
 import org.usfirst.frc4632.RobotCode2019v2.commands.*;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -73,6 +74,10 @@ public class GyroScope extends Subsystem {
     @Override
     public void periodic() {
         // Put code here to be run every loop
+        if ( Robot.DEBUG ) {
+            System.out.println("Starting GyroScope");
+        }
+
 
         // Print out the current orientation 
         //double [] xyz_dps = new double[3];

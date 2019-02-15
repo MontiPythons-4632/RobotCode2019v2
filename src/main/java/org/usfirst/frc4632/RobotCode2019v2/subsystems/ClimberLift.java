@@ -11,6 +11,7 @@
 
 package org.usfirst.frc4632.RobotCode2019v2.subsystems;
 
+import org.usfirst.frc4632.RobotCode2019v2.Robot;
 import org.usfirst.frc4632.RobotCode2019v2.commands.*;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -76,12 +77,16 @@ public class ClimberLift extends Subsystem {
 
         // Set the default command for a subsystem here.
         // setDefaultCommand(new MySpecialCommand());
-        this.holdAll();
+
     }
 
     @Override
     public void periodic() {
         // Put code here to be run every loop
+        if ( Robot.DEBUG ) {
+            System.out.println("Starting ClimberLift");
+        }
+
 
         // Check to see if there is a change in state for the Back piston
         if ( this.backDesiredState != this.backCurrentState ) {

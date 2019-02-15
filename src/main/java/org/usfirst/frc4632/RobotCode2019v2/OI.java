@@ -85,7 +85,6 @@ public class OI {
 
         // SmartDashboard Buttons
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
-        // SmartDashboard.putData("JoystickDrive", new JoystickDrive());
         SmartDashboard.putData("PinchieOpen", new PinchieOpen());
         SmartDashboard.putData("PinchieClose", new PinchieClose());
         SmartDashboard.putData("PinchieOpen", new PinchieExtend());
@@ -104,7 +103,8 @@ public class OI {
         // SmartDashboard.putData("ElevatorLowerBottom", new ElevatorLowerBottom());
         // SmartDashboard.putData("ElevatorRaiseTop", new ElevatorRaiseTop());
         // SmartDashboard.putData("ElevatorLowerTop", new ElevatorLowerTop());
-
+        SmartDashboard.putNumber("JoyStick Speed", driveStick.getY());
+        SmartDashboard.putNumber("JoyStick Direction", driveStick.getX());
  
         // Provide a command for Button 1
         //button1.whenPressed();

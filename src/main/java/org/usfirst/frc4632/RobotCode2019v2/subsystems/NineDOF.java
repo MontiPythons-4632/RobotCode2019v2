@@ -14,6 +14,7 @@ package org.usfirst.frc4632.RobotCode2019v2.subsystems;
 
 import com.ctre.phoenix.sensors.PigeonIMU;
 
+import org.usfirst.frc4632.RobotCode2019v2.Robot;
 import org.usfirst.frc4632.RobotCode2019v2.commands.*;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -86,6 +87,10 @@ public class NineDOF extends Subsystem {
 
     @Override
     public void periodic() {
+        if ( Robot.DEBUG ) {
+            System.out.println("Starting NineDOF");
+        }
+
         // Put code here to be run every loop
 
         double[] xyz_dps = new double[3];
