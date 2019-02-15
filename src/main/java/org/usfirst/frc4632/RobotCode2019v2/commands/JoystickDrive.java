@@ -39,7 +39,7 @@ public class JoystickDrive extends Command {
         
         /* drive robot */
         System.out.println("joystick: " + Robot.oi.getForwardSpeed());
-;        Robot.drive.arcade(Robot.oi.getForwardSpeed(), Robot.oi.getRotation());
+        Robot.drive.arcade(Robot.oi.getForwardSpeed(), Robot.oi.getRotation());
 
     }
 
