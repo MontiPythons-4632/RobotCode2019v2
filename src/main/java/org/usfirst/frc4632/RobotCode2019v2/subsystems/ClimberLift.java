@@ -14,6 +14,7 @@ package org.usfirst.frc4632.RobotCode2019v2.subsystems;
 import org.usfirst.frc4632.RobotCode2019v2.Robot;
 import org.usfirst.frc4632.RobotCode2019v2.commands.*;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.PIDSource;
@@ -37,10 +38,10 @@ public class ClimberLift extends Subsystem {
         Down,
         Moving
     }
-    private RobotStates frontCurrentState;
-    private RobotStates frontDesiredState;
-    private RobotStates backCurrentState;
-    private RobotStates backDesiredState;
+    private RobotStates frontCurrentState = RobotStates.Down;
+    private RobotStates frontDesiredState = RobotStates.Down;
+    private RobotStates backCurrentState = RobotStates.Down;
+    private RobotStates backDesiredState = RobotStates.Down;
 
     public ClimberLift() {
         front = new DoubleSolenoid(5, 0, 1);
@@ -74,31 +75,34 @@ public class ClimberLift extends Subsystem {
 
 
         // Check to see if there is a change in state for the Back piston
-        if ( this.backDesiredState != this.backCurrentState ) {
-            switch (this.backDesiredState) {
-            case Up:
-                this.back.set(Value.kForward);
-            case Down:
-                this.back.set(Value.kReverse);
-            default:
-                System.out.println("No value for back");
-            }
-            this.backCurrentState = this.backDesiredState;
+        // if ( this.backDesiredState != this.backCurrentState ) {
+        //         System.out.println("Change Back State");
+        //     switch (this.backDesiredState) {
+        //     case Up:
+        //         this.back.set(Value.kForward);
+        //     case Down:
+        //         this.back.set(Value.kReverse);
+        //     default:
+        //         System.out.println("No value for back");
+        //     }
+        //     this.backCurrentState = this.backDesiredState;
 
-        }
+        // }
 
         // Check id there is a change in state for the FrontPiston
-        if ( this.frontDesiredState != this.frontCurrentState ) {
-            switch (this.frontDesiredState) {
-            case Up:
-                this.front.set(Value.kForward);
-            case Down:
-                this.front.set(Value.kReverse);
-            default:
-                System.out.println("No value for front");
-            }
-            this.backCurrentState = this.frontDesiredState;
-        }   
+        // if ( this.frontDesiredState != this.frontCurrentState ) {
+        //     System.out.println("Change Front State");
+
+        //     switch (this.frontDesiredState) {
+        //     case Up:
+        //         this.front.set(Value.kForward);
+        //     case Down:
+        //         this.front.set(Value.kReverse);
+        //     default:
+        //         System.out.println("No value for front");
+        //     }
+        //     this.backCurrentState = this.frontDesiredState;
+        // }   
 
     }
 
@@ -119,16 +123,27 @@ public class ClimberLift extends Subsystem {
 
     public void raiseFront() {
          this.frontDesiredState = RobotStates.Up;
+         this.front.set(Value.kForward);
+         this.frontCurrentState = this.frontDesiredState;
+
     }
     public void raiseBack() {
         this.backDesiredState = RobotStates.Up;
+        this.back.set(Value.kForward);
+        this.backCurrentState = this.backDesiredState;
     }
 
     public void lowerFront() {
         this.frontDesiredState = RobotStates.Down;
+        this.front.set(Value.kReverse);
+        this.frontCurrentState = this.frontDesiredState;
     }
+
     public void lowerBack() {
         this.backDesiredState = RobotStates.Down;
+        this.back.set(Value.kReverse);
+        this.backCurrentState = this.backDesiredState;
+
     }
 
     public void holdAll() {

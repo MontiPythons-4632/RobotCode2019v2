@@ -12,38 +12,49 @@
 package org.usfirst.frc4632.RobotCode2019v2.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc4632.RobotCode2019v2.Robot;
+import org.usfirst.frc4632.RobotCode2019v2.subsystems.Elevator;
+//import edu.wpi.first.wpilibj.Joystick;
 
-/**
- *
- */
-public class PinchieOpen extends Command {
 
+public class JoystickElevator extends Command {
+
+    // private Joystick joystick = new Joystick(0);
     
-    public PinchieOpen() {
+    // Constructor
+    public JoystickElevator() {
 
-    
-        requires(Robot.pinchie);
+  
+        requires(Robot.elevator);
 
-    
     }
 
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-        setTimeout(0.3);
+        // System.out.println("joystickElevator Initialized");
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        
+        /* drive robot */
+        double speed = Robot.oi.getElevatorSpeed()*-1;
+        Elevator.Direction dir = Elevator.Direction.Up;
 
-        Robot.pinchie.openClaw();
+        if (speed < 0.0) {
+            speed = 0.2;
+            dir = Elevator.Direction.Down;
+        }
+
+        Robot.elevator.moveBottom(speed,dir);
+        // System.out.println("Elevator speed/dir" + speed + "/" + dir);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return isTimedOut();
+        return false;
     }
 
     // Called once after isFinished returns true
@@ -55,6 +66,8 @@ public class PinchieOpen extends Command {
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
-        end();
     }
+
+ 
+
 }

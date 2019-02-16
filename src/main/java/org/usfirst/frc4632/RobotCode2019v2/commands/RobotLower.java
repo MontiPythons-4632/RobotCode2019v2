@@ -7,7 +7,7 @@
 
 package org.usfirst.frc4632.RobotCode2019v2.commands;
 //import org.usfirst.frc4632.RobotCode2019v2.Robot;
-import org.usfirst.frc4632.RobotCode2019v2.commands.*;
+//import org.usfirst.frc4632.RobotCode2019v2.commands.*;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -33,7 +33,7 @@ public class RobotLower extends CommandGroup {
     // a CommandGroup containing them would require both the chassis and the
     // arm.
 
-    addParallel(new FrontActuatorRaise());
+    addSequential(new FrontActuatorRaise());
     addSequential(new BackActuatorRaise());
   }
 }

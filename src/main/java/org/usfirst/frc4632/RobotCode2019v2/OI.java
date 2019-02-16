@@ -73,7 +73,7 @@ public class OI {
             jsButton11 = new JoystickButton(driveStick, 11);
             
             
-    Joystick buttonBox = new Joystick(0);
+    Joystick buttonBox = new Joystick(1);
 	Button bbButton1 = new JoystickButton(buttonBox, 1),
 			bbButton2 = new JoystickButton(buttonBox, 2),
 			bbButton3 = new JoystickButton(buttonBox, 3),
@@ -104,7 +104,8 @@ public class OI {
         // SmartDashboard.putData("ElevatorLowerTop", new ElevatorLowerTop());
         SmartDashboard.putNumber("JoyStick Speed", driveStick.getY());
         SmartDashboard.putNumber("JoyStick Direction", driveStick.getX());
-        SmartDashboard.putNumber("ElevatorTopPosition", Robot.elevator.getCurrentTopPosition());
+        SmartDashboard.putNumber("ButtonBox Speed", buttonBox.getY());
+        SmartDashboard.putNumber("ButtonBox Direction", buttonBox.getX()); SmartDashboard.putNumber("ElevatorTopPosition", Robot.elevator.getCurrentTopPosition());
         SmartDashboard.putNumber("ElevatorBottomPosition", Robot.elevator.getCurrentBottomPosition());
         SmartDashboard.putString("Claw Position", Robot.pinchie.clawPositionString());
         SmartDashboard.putString("Pinchie Position", Robot.pinchie.pinchiePositionString());
@@ -197,5 +198,16 @@ public class OI {
     
         return sensitivity;
     }
+
+    public double getElevatorSpeed() {
+
+        double y = this.buttonBox.getY();
+        // Deadband for joystick
+        if (Math.abs(y) < 0.10) {
+            y = 0;
+        }
+        return y;
+    }
+
 }
 

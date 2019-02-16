@@ -58,9 +58,19 @@ public class Pinchie extends Subsystem {
         addChild("Claw",claw);     
 
         this.clawCurrentPosition = ClawPositions.Open;
-        this.clawDesiredPosition = ClawPositions.Closed;
+        this.clawDesiredPosition = ClawPositions.Open;
         this.pinchieCurrentPosition = PinchiePositions.Retracted;
-        this.pinchieDesiredPosition = PinchiePositions.Extended;
+        this.pinchieDesiredPosition = PinchiePositions.Retracted;
+
+        // Retract Pinshie
+        this.retractPinchie();
+  
+        // Open Claw
+        this.openClaw();
+
+    }
+
+    private void closeClaw(Value kreverse) {
     }
 
     @Override
@@ -73,56 +83,65 @@ public class Pinchie extends Subsystem {
     @Override
     public void periodic() {
         // Put code here to be run every loop
-        if ( Robot.DEBUG ) {
-            System.out.println("Starting Pinchie");
-        }
+        //if ( Robot.DEBUG ) {
+            // System.out.println("Pinchie Periodic");
+       // }
 
 
-        if ( this.clawDesiredPosition != this.clawCurrentPosition ) {
-            switch (this.clawDesiredPosition) {
-            case Open:
-                this.claw.set(Value.kForward);
-            case Closed:
-                this.claw.set(Value.kReverse);
-            default:
-                System.out.println("No value for claw");
-            }
-            this.clawCurrentPosition = this.clawDesiredPosition;
-            SmartDashboard.putString("Claw Position", this.clawPositionString());
-        }
+        // if ( this.clawDesiredPosition != this.clawCurrentPosition ) {
+        //     System.out.println("Pinchie Claw: " + this.clawDesiredPosition);
 
-        if ( this.pinchieDesiredPosition != this.pinchieCurrentPosition ) {
-            switch (this.pinchieDesiredPosition) {
-            case Extended:
-                this.claw.set(Value.kForward);
-            case Retracted:
-                this.claw.set(Value.kReverse);
-            default:
-                System.out.println("No value for claw");
-            }
-            this.pinchieCurrentPosition = this.pinchieDesiredPosition;
-            SmartDashboard.putString("Pinchie Position", this.pinchiePositionString());
+  
+        // }
 
-        }
+        // if ( this.pinchieDesiredPosition != this.pinchieCurrentPosition ) {
+        //     System.out.println("Pinchie Extender: " + this.pinchieDesiredPosition);
+
+        //     switch (this.pinchieDesiredPosition) {
+        //     case Extended:
+        //         this.pinchie.set(Value.kReverse);
+        //     case Retracted:
+        //         this.pinchie.set(Value.kForward);
+        //     default:
+        //         System.out.println("No value for claw");
+        //     }
+        //     this.pinchieCurrentPosition = this.pinchieDesiredPosition;
+        //     SmartDashboard.putString("Pinchie Position", this.pinchiePositionString());
+
+        // }
 
 
     }
 
     
     public void openClaw() {
+        System.out.println("Open");
         this.clawDesiredPosition = ClawPositions.Open;
+        this.claw.set(Value.kReverse);
+        this.clawCurrentPosition = this.clawDesiredPosition;
+        SmartDashboard.putString("Claw Position", this.clawPositionString());
     }
 
     public void closeClaw() {
+        System.out.println("Close");
         this.clawDesiredPosition = ClawPositions.Closed;
+        this.claw.set(Value.kForward);
+        this.clawCurrentPosition = this.clawDesiredPosition;
+        SmartDashboard.putString("Claw Position", this.clawPositionString());
     }
 
     public void extendPinchie() {
         this.pinchieDesiredPosition = PinchiePositions.Extended;
+        this.pinchie.set(Value.kForward);
+        this.pinchieCurrentPosition = this.pinchieDesiredPosition;
+        SmartDashboard.putString("Pinchie Position", this.pinchiePositionString());
     }
 
     public void retractPinchie() {
         this.pinchieDesiredPosition = PinchiePositions.Retracted;
+        this.pinchie.set(Value.kReverse);
+        this.pinchieCurrentPosition = this.pinchieDesiredPosition;
+        SmartDashboard.putString("Pinchie Position", this.pinchiePositionString());
     }
 
     public String clawPositionString() {

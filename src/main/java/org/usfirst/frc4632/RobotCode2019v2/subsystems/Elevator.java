@@ -29,9 +29,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Elevator extends Subsystem {
 
-    public static final double slow = 0.3;
-    public static final double normal = 0.5;
-    public static final double fast = 0.8;
+    public static final double slow = 0.6;
+    public static final double normal = 0.8;
+    public static final double fast = 1.0;
  
     private Spark bottom;
     private Spark top;
@@ -90,7 +90,7 @@ public class Elevator extends Subsystem {
     // here. Call these from Commands.
     public void setCurrentTopPosition(int position) {
         this.currentTopPosition = position;
-        System.out.println("setCurrentElevatorTop: " + position);
+        // System.out.println("setCurrentElevatorTop: " + position);
         SmartDashboard.putNumber("ElevatorTopPosition", position);
 
     }
@@ -110,13 +110,21 @@ public class Elevator extends Subsystem {
     }
 
     public void moveBottom(double speed, Direction direction) {
+        // System.out.println("speed: " + speed);
+        // System.out.println("direction: " + direction.getDirectionMultiplier());
 
         bottom.set(speed * direction.getDirectionMultiplier());
     }
 
     public void moveTop(double speed, Direction direction) {
 
-        bottom.set(speed * direction.getDirectionMultiplier());
+        top.set(speed * direction.getDirectionMultiplier());
     }
+
+    public void holdPosition() {
+        bottom.set(0.5);
+    
+    }
+
 }
 

@@ -33,7 +33,7 @@ public class RobotRaise extends CommandGroup {
     // a CommandGroup containing them would require both the chassis and the
     // arm.
 
-    addParallel(new FrontActuatorLower());
+    addSequential(new FrontActuatorLower());
     addSequential(new BackActuatorLower());
   }
 }

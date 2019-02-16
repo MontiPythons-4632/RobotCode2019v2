@@ -29,12 +29,13 @@ public class PinchieExtend extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-        setTimeout(0.1);
+        setTimeout(0.4);
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        System.out.println("PinchieExtend Execute");
         Robot.pinchie.extendPinchie();
     }
 
