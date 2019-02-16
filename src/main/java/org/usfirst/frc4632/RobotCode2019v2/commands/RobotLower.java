@@ -11,11 +11,11 @@ import org.usfirst.frc4632.RobotCode2019v2.commands.*;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-public class RobotRaise extends CommandGroup {
+public class RobotLower extends CommandGroup {
   /**
    * Add your docs here.
    */
-  public RobotRaise() {
+  public RobotLower() {
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());
@@ -33,7 +33,7 @@ public class RobotRaise extends CommandGroup {
     // a CommandGroup containing them would require both the chassis and the
     // arm.
 
-    addParallel(new FrontActuatorLower());
-    addSequential(new BackActuatorLower());
+    addParallel(new FrontActuatorRaise());
+    addSequential(new BackActuatorRaise());
   }
 }

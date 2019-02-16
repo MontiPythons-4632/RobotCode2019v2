@@ -72,7 +72,7 @@ public class Elevator extends Subsystem {
     public void initDefaultCommand() {
      
         // Set the default command for a subsystem here.
-        setDefaultCommand(new ElevatorPosition(1));
+        //setDefaultCommand(new ElevatorPosition(1));
     }
 
     @Override
@@ -90,6 +90,7 @@ public class Elevator extends Subsystem {
     // here. Call these from Commands.
     public void setCurrentTopPosition(int position) {
         this.currentTopPosition = position;
+        System.out.println("setCurrentElevatorTop: " + position);
         SmartDashboard.putNumber("ElevatorTopPosition", position);
 
     }

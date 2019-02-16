@@ -35,24 +35,29 @@ public class ElevatorPosition extends Command {
     @Override
     protected void initialize() {
 
+        System.out.println("Initialize Elevator Position to "+ this.targetPosition);
         double runtime = 1.0;
 
         switch(this.targetPosition) {
             case 1:
                 this.targetTopPosition = 0;
                 this.targetBottomPosition = 0;
+                break;
             case 2:
-                this.targetTopPosition = 1;
-                this.targetBottomPosition = 0;  
+                this.targetTopPosition = 0;
+                this.targetBottomPosition = 1;  
+                break;
             case 3:
                 this.targetTopPosition = 1;
                 this.targetBottomPosition = 1;  
+                break;
             default:
                 this.targetTopPosition = 0;
                 this.targetBottomPosition = 0;
         };
      
-            setTimeout(1.5);
+        System.out.println("Setting target top to: " + this.targetTopPosition);
+            setTimeout(runtime);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -84,6 +89,8 @@ public class ElevatorPosition extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        System.out.println("Done Elevator Position: " + this.targetPosition);
+
         Robot.elevator.setCurrentBottomPosition(this.targetBottomPosition);
         Robot.elevator.setCurrentTopPosition(this.targetTopPosition);
     }

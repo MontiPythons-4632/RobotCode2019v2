@@ -6,16 +6,16 @@
 /*----------------------------------------------------------------------------*/
 
 package org.usfirst.frc4632.RobotCode2019v2.commands;
-//import org.usfirst.frc4632.RobotCode2019v2.Robot;
-import org.usfirst.frc4632.RobotCode2019v2.commands.*;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import org.usfirst.frc4632.RobotCode2019v2.commands.*;
 
-public class RobotRaise extends CommandGroup {
+
+public class RobotRaiseMove extends CommandGroup {
   /**
    * Add your docs here.
    */
-  public RobotRaise() {
+  public RobotRaiseMove() {
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());
@@ -33,7 +33,6 @@ public class RobotRaise extends CommandGroup {
     // a CommandGroup containing them would require both the chassis and the
     // arm.
 
-    addParallel(new FrontActuatorLower());
-    addSequential(new BackActuatorLower());
+    //addParallel(ClimberDrive.);
   }
 }
