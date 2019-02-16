@@ -32,7 +32,7 @@ public class Robot extends TimedRobot {
     Command autonomousCommand;
     SendableChooser<Command> chooser = new SendableChooser<>();
 
-    public static boolean DEBUG = true;
+    public static boolean DEBUG = false;
     public static OI oi;
     public static Drive drive;
     //public static GyroScope gyroScope;
