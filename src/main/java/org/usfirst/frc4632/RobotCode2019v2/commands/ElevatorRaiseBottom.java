@@ -12,6 +12,8 @@
 package org.usfirst.frc4632.RobotCode2019v2.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc4632.RobotCode2019v2.Robot;
+import org.usfirst.frc4632.RobotCode2019v2.subsystems.Elevator;
+
 
 /**
  *
@@ -43,6 +45,7 @@ public class ElevatorRaiseBottom extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        Robot.elevator.moveBottom(0.5, Elevator.Direction.Up);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -60,5 +63,6 @@ public class ElevatorRaiseBottom extends Command {
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        end();
     }
 }

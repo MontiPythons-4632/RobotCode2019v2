@@ -32,7 +32,7 @@ public class Robot extends TimedRobot {
     Command autonomousCommand;
     SendableChooser<Command> chooser = new SendableChooser<>();
 
-    public static boolean DEBUG = true;
+    public static boolean DEBUG = false;
     public static OI oi;
     public static Drive drive;
     //public static GyroScope gyroScope;
@@ -40,13 +40,14 @@ public class Robot extends TimedRobot {
 
  
     public static ClimberLift climberLift;
-    /*
+   
     public static ClimberDrive climberDrive;
-    */
+    
     public static Elevator elevator;
     public static Pinchie pinchie;
 
     Command joystickDrive;
+    Command joystickElevator;
 
     enum RobotType {
         Competition,
@@ -76,10 +77,13 @@ public class Robot extends TimedRobot {
      
 
         joystickDrive = new JoystickDrive();
+        joystickElevator = new JoystickElevator();
 
-        /*
+    
         climberLift.lowerRobot();
-    */
+        pinchie.openClaw();
+        pinchie.retractPinchie();
+    
 
         // OI must be constructed after subsystems. If the OI creates Commands
         //(which it very likely will), subsystems are not guaranteed to be
@@ -91,8 +95,8 @@ public class Robot extends TimedRobot {
         chooser.setDefaultOption("Autonomous Command", new AutonomousCommand());
 
         SmartDashboard.putData("Auto mode", chooser);
-        SmartDashboard.putData(elevator);
-        SmartDashboard.putData(climberLift);
+        // SmartDashboard.putData(elevator);
+        // SmartDashboard.putData(climberLift);
 
     }
 
@@ -146,6 +150,11 @@ public class Robot extends TimedRobot {
         //     System.out.println("Starting joystickDrive");
         //     joystickDrive.start();
         // }
+
+        if ( joystickElevator != null ) {
+            System.out.println("Starting joystickElevator");
+            joystickElevator.start();
+        }
     }
 
     /**

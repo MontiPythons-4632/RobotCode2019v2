@@ -66,7 +66,7 @@ public class Drive extends Subsystem {
         
         differentialDrive1 = new DifferentialDrive(left, right);
         addChild("Differential Drive 1",differentialDrive1);
-        differentialDrive1.setSafetyEnabled(true);
+        differentialDrive1.setSafetyEnabled(false);
         differentialDrive1.setExpiration(0.3);
         differentialDrive1.setMaxOutput(1.0);
     
