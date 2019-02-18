@@ -84,31 +84,33 @@ public class OI {
 
     public OI() {
         // SmartDashboard Buttons
+        // Functions
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
         SmartDashboard.putData("PinchieOpen", new PinchieOpen());
         SmartDashboard.putData("PinchieClose", new PinchieClose());
-        SmartDashboard.putData("PinchieOpen", new PinchieExtend());
-        SmartDashboard.putData("PinchieClose", new PinchieRetract());
+        SmartDashboard.putData("PinchieExtend", new PinchieExtend());
+        SmartDashboard.putData("PinchieRetract", new PinchieRetract());
         SmartDashboard.putData("Raise Robot", new RobotRaise());
         SmartDashboard.putData("Lower Robot", new RobotLower());
-
         SmartDashboard.putData("ClimberRaiseFront", new ClimberRaiseFront());
         SmartDashboard.putData("ClimberLowerFront", new ClimberLowerFront());
         SmartDashboard.putData("ClimberRaiseBack", new ClimberRaiseBack());
         SmartDashboard.putData("ClimberLowerBack", new ClimberLowerBack());
-
         SmartDashboard.putData("ClimberMove", new ClimberMove());
-        // SmartDashboard.putData("ElevatorRaiseBottom", new ElevatorRaiseBottom());
-        // SmartDashboard.putData("ElevatorLowerBottom", new ElevatorLowerBottom());
-        // SmartDashboard.putData("ElevatorRaiseTop", new ElevatorRaiseTop());
-        // SmartDashboard.putData("ElevatorLowerTop", new ElevatorLowerTop());
+    
+        // Data
         SmartDashboard.putNumber("JoyStick Speed", driveStick.getY());
         SmartDashboard.putNumber("JoyStick Direction", driveStick.getX());
         SmartDashboard.putNumber("ButtonBox Speed", buttonBox.getY());
-        SmartDashboard.putNumber("ButtonBox Direction", buttonBox.getX()); SmartDashboard.putNumber("ElevatorTopPosition", Robot.elevator.getCurrentTopPosition());
+        SmartDashboard.putNumber("ButtonBox Direction", buttonBox.getX()); 
+        SmartDashboard.putNumber("ElevatorTopPosition", Robot.elevator.getCurrentTopPosition());
         SmartDashboard.putNumber("ElevatorBottomPosition", Robot.elevator.getCurrentBottomPosition());
         SmartDashboard.putString("Claw Position", Robot.pinchie.clawPositionString());
         SmartDashboard.putString("Pinchie Position", Robot.pinchie.pinchiePositionString());
+        SmartDashboard.putNumber("Compass", Robot.nineDOF.getCompassHeading());
+        SmartDashboard.putNumber("Yaw", Robot.nineDOF.getYaw());
+        SmartDashboard.putNumber("Pitch", Robot.nineDOF.getPitch());
+        SmartDashboard.putNumber("Roll", Robot.nineDOF.getRoll());
 
         // DriveStick Buttons
         // Provide a command for Button 1

@@ -35,8 +35,7 @@ public class Robot extends TimedRobot {
     public static boolean DEBUG = false;
     public static OI oi;
     public static Drive drive;
-    //public static GyroScope gyroScope;
-    // public static NineDOF nineDOF;
+    public static NineDOF nineDOF;
 
  
     public static ClimberLift climberLift;
@@ -65,7 +64,7 @@ public class Robot extends TimedRobot {
 
         drive = new Drive();
         //gyroScope = new GyroScope();
-        // nineDOF = new NineDOF();
+        nineDOF = new NineDOF();
 
         climberLift = new ClimberLift();
         /*
