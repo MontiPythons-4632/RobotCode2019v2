@@ -60,27 +60,34 @@ public class OI {
     //private double sensitivity = OI.normal;
 
     Joystick driveStick = new Joystick(0);
-	Button jsButton1 = new JoystickButton(driveStick, 1),
-			jsButton2 = new JoystickButton(driveStick, 2),
-			jsButton3 = new JoystickButton(driveStick, 3),
-			jsButton4 = new JoystickButton(driveStick, 4),
-			jsButton5 = new JoystickButton(driveStick, 5),
-			jsButton6 = new JoystickButton(driveStick, 6),
-			jsButton7 = new JoystickButton(driveStick, 7),
-			jsButton8 = new JoystickButton(driveStick, 8),
-			jsButton9 = new JoystickButton(driveStick, 9),
-			jsButton10 = new JoystickButton(driveStick, 10),
-            jsButton11 = new JoystickButton(driveStick, 11);
+	Button dsButton1 = new JoystickButton(driveStick, 1),
+			dsButton2 = new JoystickButton(driveStick, 2),
+			dsButton3 = new JoystickButton(driveStick, 3),
+			dsButton4 = new JoystickButton(driveStick, 4),
+			dsButton5 = new JoystickButton(driveStick, 5),
+			dsButton6 = new JoystickButton(driveStick, 6),
+			dsButton7 = new JoystickButton(driveStick, 7),
+			dsButton8 = new JoystickButton(driveStick, 8),
+			dsButton9 = new JoystickButton(driveStick, 9),
+			dsButton10 = new JoystickButton(driveStick, 10),
+            dsButton11 = new JoystickButton(driveStick, 11);
             
             
-    Joystick buttonBox = new Joystick(1);
-	Button bbButton1 = new JoystickButton(buttonBox, 1),
-			bbButton2 = new JoystickButton(buttonBox, 2),
-			bbButton3 = new JoystickButton(buttonBox, 3),
-			bbButton4 = new JoystickButton(buttonBox, 4),
-			bbButton5 = new JoystickButton(buttonBox, 5),
-            bbButton6 = new JoystickButton(buttonBox, 6),
-            bbButton7 = new JoystickButton(buttonBox, 7);
+    Joystick elevatorStick = new Joystick(1);
+	Button esButton1 = new JoystickButton(elevatorStick, 1),
+			esButton2 = new JoystickButton(elevatorStick, 2),
+			esButton3 = new JoystickButton(elevatorStick, 3),
+			esButton4 = new JoystickButton(elevatorStick, 4),
+			esButton5 = new JoystickButton(elevatorStick, 5),
+            esButton6 = new JoystickButton(elevatorStick, 6),
+            esButton7 = new JoystickButton(elevatorStick, 7),
+            esButton8 = new JoystickButton(elevatorStick, 8),
+            esButton9 = new JoystickButton(elevatorStick, 9),
+            esButton10 = new JoystickButton(elevatorStick, 10),
+            esButton11 = new JoystickButton(elevatorStick, 11);
+
+
+
 
     public OI() {
         // SmartDashboard Buttons
@@ -104,53 +111,56 @@ public class OI {
         // SmartDashboard.putData("ElevatorLowerTop", new ElevatorLowerTop());
         SmartDashboard.putNumber("JoyStick Speed", driveStick.getY());
         SmartDashboard.putNumber("JoyStick Direction", driveStick.getX());
-        SmartDashboard.putNumber("ButtonBox Speed", buttonBox.getY());
-        SmartDashboard.putNumber("ButtonBox Direction", buttonBox.getX()); SmartDashboard.putNumber("ElevatorTopPosition", Robot.elevator.getCurrentTopPosition());
+        SmartDashboard.putNumber("elevatorStick Speed", elevatorStick.getY());
+        SmartDashboard.putNumber("elevatorStick Direction", elevatorStick.getX()); SmartDashboard.putNumber("ElevatorTopPosition", Robot.elevator.getCurrentTopPosition());
         SmartDashboard.putNumber("ElevatorBottomPosition", Robot.elevator.getCurrentBottomPosition());
         SmartDashboard.putString("Claw Position", Robot.pinchie.clawPositionString());
         SmartDashboard.putString("Pinchie Position", Robot.pinchie.pinchiePositionString());
 
         // DriveStick Buttons
         // Provide a command for Button 1
-        //jsButton1.whenPressed();
+        //dsButton1.whenPressed();
 
         // Provide a command for Button 4
-        jsButton4.whenPressed(new PinchieOpen());
+        dsButton4.whenPressed(new PinchieOpen());
 
         // Provide a command for Button 5
-        jsButton5.whenPressed(new PinchieClose());
+        dsButton5.whenPressed(new PinchieClose());
 
         // Provide a command for Button 6
-        jsButton6.whenPressed(new PinchieExtend());
+        dsButton6.whenPressed(new FrontActuatorLower());
 		
         // Provide a command for Button 7
-		jsButton7.whenPressed(new PinchieRetract());
+		dsButton7.whenPressed(new FrontActuatorRaise());
 
           // Provide a command for Button 8
-		 //jsButton8.whenPressed(new ());
+		 dsButton8.whenPressed(new RobotAutoClimb());
 
         // Provide a command for Button 9
-         jsButton9.whenPressed(new ElevatorPosition(1));
+         dsButton9.whenPressed(new RobotRaise());
 
         // Provide a command for Button 10
-        jsButton10.whenPressed(new ElevatorPosition(2));
+        dsButton10.whenPressed(new BackActuatorRaise());
 
         // Provide a command for Button 11
-        jsButton11.whenPressed(new ElevatorPosition(3));
+        dsButton11.whenPressed(new BackActuatorLower());
 
-        //Button Box Buttons
+        //Elevator Stick Buttons
 
-        bbButton1.whenPressed(new RobotAutoClimb());
+        //esButton1.whenPressed(new ());
+        //esButton2.whenPressed(new ());
+        //esButton3.whenPressed(new ());
+        esButton4.whenPressed(new PinchieOpen());
+        esButton5.whenPressed(new PinchieClose());
 
-        bbButton2.whenPressed(new RobotRaise());
+        esButton6.whenPressed(new PinchieExtend());
+        esButton7.whenPressed(new PinchieRetract());
 
-        bbButton3.whenPressed(new FrontActuatorLower());
-        bbButton4.whenPressed(new FrontActuatorRaise());
+        esButton9.whenPressed(new ElevatorPosition(1));
+        esButton10.whenPressed(new ElevatorPosition(2));
+        esButton11.whenPressed(new ElevatorPosition(3));
 
-        bbButton5.whenPressed(new BackActuatorLower());
-        bbButton6.whenPressed(new BackActuatorRaise());
 
-        bbButton7.whileHeld(new ActuatorActivate());
 
     }
 
@@ -190,9 +200,9 @@ public class OI {
 
         double sensitivity = OI.normal;
 
-        if ( this.jsButton1.get() ) {
+        if ( this.dsButton1.get() ) {
             sensitivity = OI.slow;
-        } else if ( this.jsButton2.get() ) {
+        } else if ( this.dsButton2.get() ) {
             sensitivity = OI.fast;
         }
     
@@ -201,7 +211,7 @@ public class OI {
 
     public double getElevatorSpeed() {
 
-        double y = this.buttonBox.getY();
+        double y = this.elevatorStick.getY();
         // Deadband for joystick
         if (Math.abs(y) < 0.10) {
             y = 0;
