@@ -48,6 +48,7 @@ public class Robot extends TimedRobot {
 
     Command joystickDrive;
     Command joystickElevator;
+    
 
     enum RobotType {
         Competition,
@@ -80,7 +81,10 @@ public class Robot extends TimedRobot {
         joystickElevator = new JoystickElevator();
 
     
-        climberLift.lowerRobot();
+    
+       // climber = new RobotLower();
+        climberLift.retractBack();
+        climberLift.retractFront();
         pinchie.openClaw();
         pinchie.retractPinchie();
     

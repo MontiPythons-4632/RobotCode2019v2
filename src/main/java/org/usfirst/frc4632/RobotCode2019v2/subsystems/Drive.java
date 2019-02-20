@@ -132,30 +132,11 @@ public class Drive extends Subsystem {
     public void arcade(double speed, double direction) {
 
         /* Takes parameters and sets direction */
-        this.differentialDrive1.arcadeDrive(-1*speed, direction);
+        this.differentialDrive1.arcadeDrive(-1.0*speed, direction);
 
 
-        /* get sensor values */
-        // double leftPos = _leftFront.GetSelectedSensorPosition(0);
-        // double rghtPos = _rghtFront.GetSelectedSensorPosition(0);
-        double leftVelUnitsPer100ms = leftFront.getSelectedSensorVelocity(0);
-        double rghtVelUnitsPer100ms = rightFront.getSelectedSensorVelocity(0);
-
-        work += " L:" + leftVelUnitsPer100ms + " R:" + rghtVelUnitsPer100ms;
-
-        /*
-         * drive motor at least 25%, Talons will auto-detect if sensor is out of phase
-         */
-        leftFront.getFaults(faults_L);
-        rightFront.getFaults(faults_R);
-
-        if (faults_L.SensorOutOfPhase) {
-            work += " L sensor is out of phase";
-        }
-        if (faults_R.SensorOutOfPhase) {
-            work += " R sensor is out of phase";
-        }
     }
+
     
     // public void turnDeg( double degX ) {
     //     this.initX = Robot.nineDOF.getXDirection();

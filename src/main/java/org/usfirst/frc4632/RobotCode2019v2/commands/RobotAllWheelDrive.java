@@ -9,11 +9,11 @@ package org.usfirst.frc4632.RobotCode2019v2.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-public class RobotAutoClimb extends CommandGroup {
+public class RobotAllWheelDrive extends CommandGroup {
   /**
    * Add your docs here.
    */
-  public RobotAutoClimb() {
+  public RobotAllWheelDrive() {
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());
@@ -30,7 +30,13 @@ public class RobotAutoClimb extends CommandGroup {
     // e.g. if Command1 requires chassis, and Command2 requires arm,
     // a CommandGroup containing them would require both the chassis and the
     // arm.
-    
-    addSequential(new RobotRaise());
+
+    double speed = 0.3;
+    double direction = 0.0;
+    double duration = 0.25;
+
+    addParallel(new RobotDrive(speed, direction, duration));
+//addSequential(new ClimberMove(speed, direction, duration));  
+
   }
 }

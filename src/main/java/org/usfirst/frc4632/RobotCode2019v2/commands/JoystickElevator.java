@@ -39,16 +39,34 @@ public class JoystickElevator extends Command {
     protected void execute() {
         
         /* drive robot */
-        double speed = Robot.oi.getElevatorSpeed()*-1;
-        Elevator.Direction dir = Elevator.Direction.Up;
+        double topSpeed = Robot.oi.getElevatorSpeed();
+        double bottomSpeed = Robot.oi.getElevatorSpeed();
+        Elevator.Direction topDir = Elevator.Direction.Up;
+        Elevator.Direction bottomDir = Elevator.Direction.Up;
+        int tempBottomDir = 1;
+        int tempTopDir = 1;
 
-        if (speed < 0.0) {
-            speed = 0.2;
-            dir = Elevator.Direction.Down;
+        double lock = 0.1;
+
+        if (topSpeed < 0.0) {
+            topSpeed *= 0.3;
+            topDir = Elevator.Direction.Down;
+            tempBottomDir = -1;
         }
 
-        Robot.elevator.moveBottom(speed,dir);
-        // System.out.println("Elevator speed/dir" + speed + "/" + dir);
+        if (bottomSpeed < 0.0) {
+            bottomSpeed *= 0.3;
+            bottomDir = Elevator.Direction.Down;
+            tempBottomDir = -1;
+        }
+
+        if( Robot.oi.getElevatorForAction() == "bottom") {
+            Robot.elevator.moveBottom(bottomSpeed,tempBottomDir);
+            Robot.elevator.moveTop(lock,1);
+        } else {
+           System.out.println("Move Top");
+           Robot.elevator.moveTop(topSpeed,tempTopDir);
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()

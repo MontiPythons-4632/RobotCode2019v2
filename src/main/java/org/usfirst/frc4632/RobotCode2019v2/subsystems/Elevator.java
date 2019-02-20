@@ -109,20 +109,30 @@ public class Elevator extends Subsystem {
         return this.currentBottomPosition;
     }
 
-    public void moveBottom(double speed, Direction direction) {
+ //   public void moveBottom(double speed, Direction direction) {
+     public void moveBottom(double speed, int direction) {
         // System.out.println("speed: " + speed);
         // System.out.println("direction: " + direction.getDirectionMultiplier());
+        SmartDashboard.putNumber("MoveBottomSpeed", speed);
+        SmartDashboard.putNumber("MoveBottomDirection", direction);
 
-        bottom.set(speed * direction.getDirectionMultiplier());
+
+        this.bottom.set(speed * direction);
     }
 
-    public void moveTop(double speed, Direction direction) {
+    // public void moveTop(double speed, Direction direction) {
+    public void moveTop(double speed, double direction) {
 
-        top.set(speed * direction.getDirectionMultiplier());
+        // System.out.println("speed: " + speed);
+        // System.out.println("direction: " + direction.getDirectionMultiplier());
+        SmartDashboard.putNumber("MoveTopSpeed", speed);
+        SmartDashboard.putNumber("MoveTopDirection", direction);
+
+        this.top.set(speed * direction);
     }
 
     public void holdPosition() {
-        bottom.set(0.5);
+        this.bottom.set(0.5);
     
     }
 

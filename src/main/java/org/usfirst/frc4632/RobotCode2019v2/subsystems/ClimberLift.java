@@ -30,18 +30,15 @@ public class ClimberLift extends Subsystem {
 
     private DoubleSolenoid front;
     private DoubleSolenoid back;
-    private DoubleSolenoid dummy1;
-    private DoubleSolenoid dummy2;
-
+ 
     public enum RobotStates {
-        Up,
-        Down,
-        Moving
+        Extended,
+        Retracted
     }
-    private RobotStates frontCurrentState = RobotStates.Down;
-    private RobotStates frontDesiredState = RobotStates.Down;
-    private RobotStates backCurrentState = RobotStates.Down;
-    private RobotStates backDesiredState = RobotStates.Down;
+    private RobotStates frontCurrentState = RobotStates.Retracted;
+    private RobotStates frontDesiredState = RobotStates.Retracted;
+    private RobotStates backCurrentState = RobotStates.Retracted;
+    private RobotStates backDesiredState = RobotStates.Retracted;
 
     public ClimberLift() {
         front = new DoubleSolenoid(5, 0, 1);
@@ -49,12 +46,6 @@ public class ClimberLift extends Subsystem {
         
         back = new DoubleSolenoid(5, 2, 3);
         addChild("Back",back);
-        
-        // dummy1 = new DoubleSolenoid(5, 4, 5);
-        // addChild("dummy1",dummy1);
-
-        // dummy2 = new DoubleSolenoid(5, 6, 7);
-        // addChild("dummy2",dummy2);
 
     }
 
@@ -73,91 +64,60 @@ public class ClimberLift extends Subsystem {
             System.out.println("Starting ClimberLift");
         }
 
-
-        // Check to see if there is a change in state for the Back piston
-        // if ( this.backDesiredState != this.backCurrentState ) {
-        //         System.out.println("Change Back State");
-        //     switch (this.backDesiredState) {
-        //     case Up:
-        //         this.back.set(Value.kForward);
-        //     case Down:
-        //         this.back.set(Value.kReverse);
-        //     default:
-        //         System.out.println("No value for back");
-        //     }
-        //     this.backCurrentState = this.backDesiredState;
-
-        // }
-
-        // Check id there is a change in state for the FrontPiston
-        // if ( this.frontDesiredState != this.frontCurrentState ) {
-        //     System.out.println("Change Front State");
-
-        //     switch (this.frontDesiredState) {
-        //     case Up:
-        //         this.front.set(Value.kForward);
-        //     case Down:
-        //         this.front.set(Value.kReverse);
-        //     default:
-        //         System.out.println("No value for front");
-        //     }
-        //     this.backCurrentState = this.frontDesiredState;
-        // }   
-
     }
 
    
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
-    public void raiseRobot() {
+    // public void raiseRobot() {
 
-        this.raiseFront();
-        this.raiseBack();
-    }
+    //     this.raiseFront();
+    //     this.raiseBack();
+    // }
 
-    public void lowerRobot() {
-        this.lowerFront();
-        this.lowerBack();
-    }
+    // public void lowerRobot() {
+    //     this.lowerFront();
+    //     this.lowerBack();
+    // }
 
-    public void raiseFront() {
-         this.frontDesiredState = RobotStates.Up;
+    public void extendFront() {
+        // this.frontDesiredState = RobotStates.Extended;
          this.front.set(Value.kForward);
-         this.frontCurrentState = this.frontDesiredState;
+         this.frontCurrentState = RobotStates.Extended;
 
     }
-    public void raiseBack() {
-        this.backDesiredState = RobotStates.Up;
+    public void extendBack() {
+        //this.backDesiredState = RobotStates.Extended;
         this.back.set(Value.kForward);
-        this.backCurrentState = this.backDesiredState;
+        this.backCurrentState = RobotStates.Extended;
     }
 
-    public void lowerFront() {
-        this.frontDesiredState = RobotStates.Down;
+    public void retractFront() {
+        //this.frontDesiredState = RobotStates.Retracted;
         this.front.set(Value.kReverse);
-        this.frontCurrentState = this.frontDesiredState;
+        this.frontCurrentState = RobotStates.Retracted;
     }
 
-    public void lowerBack() {
-        this.backDesiredState = RobotStates.Down;
+    public void retractBack() {
+        //this.backDesiredState = RobotStates.Retracted;
         this.back.set(Value.kReverse);
-        this.backCurrentState = this.backDesiredState;
+        this.backCurrentState = RobotStates.Retracted;
 
     }
 
-    public void holdAll() {
-        this.lowerFront();
-        this.lowerBack();
-        this.dummy1.set(Value.kReverse);
-        this.dummy2.set(Value.kReverse);
-    }
+    // public void holdAll() {
+    //     this.lowerFront();
+    //     this.lowerBack();
+    //     this.dummy1.set(Value.kReverse);
+    //     this.dummy2.set(Value.kReverse);
+   // }
 
-    public RobotStates frontState() {
+    public RobotStates getFrontState() {
         return this.frontCurrentState;
     }
  
-    public RobotStates backState() {
+    public RobotStates getBackState() {
         return this.backCurrentState;
     }
 }

@@ -70,8 +70,8 @@ public class Pinchie extends Subsystem {
 
     }
 
-    private void closeClaw(Value kreverse) {
-    }
+    // private void closeClaw(Value kreverse) {
+    // }
 
     @Override
     public void initDefaultCommand() {
@@ -132,14 +132,14 @@ public class Pinchie extends Subsystem {
 
     public void extendPinchie() {
         this.pinchieDesiredPosition = PinchiePositions.Extended;
-        this.pinchie.set(Value.kForward);
+        this.pinchie.set(Value.kReverse);
         this.pinchieCurrentPosition = this.pinchieDesiredPosition;
         SmartDashboard.putString("Pinchie Position", this.pinchiePositionString());
     }
 
     public void retractPinchie() {
         this.pinchieDesiredPosition = PinchiePositions.Retracted;
-        this.pinchie.set(Value.kReverse);
+        this.pinchie.set(Value.kForward);
         this.pinchieCurrentPosition = this.pinchieDesiredPosition;
         SmartDashboard.putString("Pinchie Position", this.pinchiePositionString());
     }

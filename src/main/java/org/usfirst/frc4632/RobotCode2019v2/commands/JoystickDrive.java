@@ -14,6 +14,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc4632.RobotCode2019v2.Robot;
 //import org.usfirst.frc4632.RobotCode2019v2.subsystems.Drive;
 //import edu.wpi.first.wpilibj.Joystick;
+import org.usfirst.frc4632.RobotCode2019v2.subsystems.ClimberDrive;
+import org.usfirst.frc4632.RobotCode2019v2.subsystems.ClimberLift;
 
 
 public class JoystickDrive extends Command {
@@ -40,7 +42,9 @@ public class JoystickDrive extends Command {
         /* drive robot */
         //System.out.println("joystick: " + Robot.oi.getForwardSpeed());
         Robot.drive.arcade(Robot.oi.getForwardSpeed(), Robot.oi.getRotation());
-
+        if (Robot.climberLift.getBackState() == ClimberLift.RobotStates.Extended) {
+            Robot.climberDrive.arcade(Robot.oi.getForwardSpeed(), Robot.oi.getRotation());
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()

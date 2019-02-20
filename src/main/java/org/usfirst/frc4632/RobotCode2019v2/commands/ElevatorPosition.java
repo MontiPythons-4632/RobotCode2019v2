@@ -68,15 +68,15 @@ public class ElevatorPosition extends Command {
         int currentBottomPosition = Robot.elevator.getCurrentBottomPosition();
 
         if ( this.targetTopPosition > currentTopPosition ) {
-            Robot.elevator.moveTop(0.9, Elevator.Direction.Up);
+            Robot.elevator.moveTop(0.9, 1);
         } else if ( this.targetTopPosition < currentTopPosition ) {
-            Robot.elevator.moveTop(0.9, Elevator.Direction.Down);
+            Robot.elevator.moveTop(0.9, -1);
         }
 
         if ( this.targetBottomPosition > currentBottomPosition ) {
-            Robot.elevator.moveBottom(0.9, Elevator.Direction.Up);
+            Robot.elevator.moveBottom(0.9, 1);
         } else  if ( this.targetBottomPosition < currentBottomPosition ) {
-            Robot.elevator.moveBottom(0.9, Elevator.Direction.Down);
+            Robot.elevator.moveBottom(0.9, -1);
         }
 
         if ( currentBottomPosition != 0){

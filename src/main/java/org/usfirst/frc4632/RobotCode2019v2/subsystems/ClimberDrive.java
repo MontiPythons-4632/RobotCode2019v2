@@ -67,6 +67,10 @@ public class ClimberDrive extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
+    public void arcade(double speed, double direction) {
 
+        /* Takes parameters and sets direction */
+        this.differentialDrive1.arcadeDrive(speed, direction);
+
+    }
 }
-

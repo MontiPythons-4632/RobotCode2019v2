@@ -16,13 +16,13 @@ public class FrontActuatorRaise extends Command {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.climberLift);
-    setTimeout(0.3);
+    setTimeout(0.1);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.climberLift.lowerFront();
+    Robot.climberLift.retractFront();
 
   }
 
