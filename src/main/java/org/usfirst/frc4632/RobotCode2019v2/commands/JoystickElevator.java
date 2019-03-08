@@ -31,7 +31,7 @@ public class JoystickElevator extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-        // System.out.println("joystickElevator Initialized");
+        System.out.println("joystickElevator Initialized");
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -41,31 +41,36 @@ public class JoystickElevator extends Command {
         /* drive robot */
         double topSpeed = Robot.oi.getElevatorSpeed();
         double bottomSpeed = Robot.oi.getElevatorSpeed();
-        Elevator.Direction topDir = Elevator.Direction.Up;
-        Elevator.Direction bottomDir = Elevator.Direction.Up;
-        int tempBottomDir = 1;
-        int tempTopDir = 1;
-
-        double lock = 0.1;
+        Elevator.Direction topDir = Elevator.Direction.Still;
+        Elevator.Direction bottomDir = Elevator.Direction.Still;
+        double lock = 0.0;
 
         if (topSpeed < 0.0) {
             topSpeed *= 0.3;
             topDir = Elevator.Direction.Down;
-            tempBottomDir = -1;
+        } else 
+        if (topSpeed > 0.0) {
+            topDir = Elevator.Direction.Up;
+        } else {
+            topDir = Elevator.Direction.Still;
         }
 
         if (bottomSpeed < 0.0) {
             bottomSpeed *= 0.3;
             bottomDir = Elevator.Direction.Down;
-            tempBottomDir = -1;
+        } else 
+        if (bottomSpeed > 0.0) {
+            bottomDir = Elevator.Direction.Up;
+        } else {
+            bottomDir = Elevator.Direction.Still;
         }
 
         if( Robot.oi.getElevatorForAction() == "bottom") {
-            Robot.elevator.moveBottom(bottomSpeed,tempBottomDir);
-            Robot.elevator.moveTop(lock,1);
+            Robot.elevator.moveBottom(bottomSpeed,bottomDir);
+            Robot.elevator.moveTop(lock,Elevator.Direction.Still);
         } else {
-           System.out.println("Move Top");
-           Robot.elevator.moveTop(topSpeed,tempTopDir);
+            Robot.elevator.moveTop(topSpeed,topDir);
+            Robot.elevator.moveBottom(lock,Elevator.Direction.Still);
         }
     }
 

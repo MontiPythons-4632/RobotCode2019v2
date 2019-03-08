@@ -110,6 +110,11 @@ public class NineDOF extends Subsystem {
         return this.curZ;
     }
     
-    
+    public void tare() {
+        this.pigeon.setYaw(0.0);
+        this.pigeon.setFusedHeading(0.0);
+
+        
+    }
 }
 

@@ -40,6 +40,7 @@ public class Elevator extends Subsystem {
 
     public enum Direction {
         Up(1),
+        Still(0),
         Down(-1)
         ;
 
@@ -110,25 +111,25 @@ public class Elevator extends Subsystem {
     }
 
  //   public void moveBottom(double speed, Direction direction) {
-     public void moveBottom(double speed, int direction) {
+     public void moveBottom(double speed, Direction direction) {
         // System.out.println("speed: " + speed);
         // System.out.println("direction: " + direction.getDirectionMultiplier());
         SmartDashboard.putNumber("MoveBottomSpeed", speed);
-        SmartDashboard.putNumber("MoveBottomDirection", direction);
+        SmartDashboard.putNumber("MoveBottomDirection", direction.directionMultiplier);
 
 
-        this.bottom.set(speed * direction);
+        this.bottom.set(speed);
     }
 
     // public void moveTop(double speed, Direction direction) {
-    public void moveTop(double speed, double direction) {
+    public void moveTop(double speed, Direction direction) {
 
         // System.out.println("speed: " + speed);
         // System.out.println("direction: " + direction.getDirectionMultiplier());
         SmartDashboard.putNumber("MoveTopSpeed", speed);
-        SmartDashboard.putNumber("MoveTopDirection", direction);
+        SmartDashboard.putNumber("MoveTopDirection", direction.directionMultiplier);
 
-        this.top.set(speed * direction);
+        this.top.set(speed);
     }
 
     public void holdPosition() {

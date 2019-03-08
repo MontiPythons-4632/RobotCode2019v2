@@ -172,6 +172,7 @@ public class OI {
     }
 
 
+// Logic for Drive Train Controls
 
     // Provide the current X value
     public double getRotation() {
@@ -212,9 +213,12 @@ public class OI {
         return sensitivity;
     }
 
+// Logic for Elevator controls
+
     public double getElevatorSpeed() {
 
-        double y = this.elevatorStick.getY();
+        // Joystick we are using flight sticks need to invert y
+        double y = this.elevatorStick.getY() * -1.0;
         // Deadband for joystick
         if (Math.abs(y) < 0.10) {
             y = 0;
@@ -223,11 +227,15 @@ public class OI {
         return y;
     }
 
+    
+
     public String getElevatorForAction() {
 
         if ( this.esButton1.get() ) {
+            System.out.println("bottom");
             return "bottom";
         } else {
+            System.out.println("top");
             return "top"; 
         }
 

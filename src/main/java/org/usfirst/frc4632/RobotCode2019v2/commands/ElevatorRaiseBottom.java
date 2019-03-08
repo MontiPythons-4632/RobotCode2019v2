@@ -45,7 +45,7 @@ public class ElevatorRaiseBottom extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        Robot.elevator.moveBottom(0.5, 1);
+        Robot.elevator.moveBottom(0.5, Elevator.Direction.Up);
     }
 
     // Make this return true when this Command no longer needs to run execute()
