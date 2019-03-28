@@ -107,6 +107,8 @@ public class OI {
         SmartDashboard.putData("BackActuatorExtend", new BackActuatorRaise());
         SmartDashboard.putData("BackActuatorRetract", new BackActuatorLower());
 
+        SmartDashboard.putData("Tare", new Tare());
+
         // SmartDashboard.putData("ClimberMove", new ClimberMove());
         // SmartDashboard.putData("ElevatorRaiseBottom", new ElevatorRaiseBottom());
         // SmartDashboard.putData("ElevatorLowerBottom", new ElevatorLowerBottom());

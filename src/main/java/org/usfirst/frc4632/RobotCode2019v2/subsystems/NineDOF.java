@@ -75,10 +75,9 @@ public class NineDOF extends Subsystem {
         this.curY = ypr_deg[1];
         this.curZ = ypr_deg[2];
 
-        SmartDashboard.putNumber("Direction", this.curX);
-        SmartDashboard.putNumber("Pitch", this.curY);
-        SmartDashboard.putNumber("Yaw", this.curZ);
-    
+        SmartDashboard.putNumber("Yaw", ypr_deg[0]);
+        SmartDashboard.putNumber("Pitch", ypr_deg[1]);
+        SmartDashboard.putNumber("Roll", ypr_deg[2]);
     }
 
     // Put methods for controlling this subsystem
