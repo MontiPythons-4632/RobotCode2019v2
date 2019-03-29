@@ -34,7 +34,7 @@ public class RobotRaise extends CommandGroup {
     // arm.
 
    // addSequential(new ClimberWheelsLock());
-    addSequential(new FrontActuatorLower());
-    addSequential(new BackActuatorLower());
+    // addSequential(new FrontActuatorLower());
+    // addSequential(new BackActuatorLower());
   }
 }

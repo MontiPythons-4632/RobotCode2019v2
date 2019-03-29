@@ -85,6 +85,7 @@ public class ClimberLift extends Subsystem {
         // this.frontDesiredState = RobotStates.Extended;
          this.front.set(Value.kForward);
          this.frontCurrentState = RobotStates.Extended;
+         SmartDashboard.putBoolean("Front Extended", true);
 
     }
     public void extendBack() {
@@ -97,6 +98,7 @@ public class ClimberLift extends Subsystem {
         //this.frontDesiredState = RobotStates.Retracted;
         this.front.set(Value.kReverse);
         this.frontCurrentState = RobotStates.Retracted;
+        SmartDashboard.putBoolean("Front Extended", false);
     }
 
     public void retractBack() {

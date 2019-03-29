@@ -115,33 +115,31 @@ public class Pinchie extends Subsystem {
 
     
     public void openClaw() {
-        System.out.println("Open");
         this.clawDesiredPosition = ClawPositions.Open;
         this.claw.set(Value.kReverse);
         this.clawCurrentPosition = this.clawDesiredPosition;
-        SmartDashboard.putString("Claw Position", this.clawPositionString());
+        SmartDashboard.putBoolean("Claw Open", true);
     }
 
     public void closeClaw() {
-        System.out.println("Close");
         this.clawDesiredPosition = ClawPositions.Closed;
         this.claw.set(Value.kForward);
         this.clawCurrentPosition = this.clawDesiredPosition;
-        SmartDashboard.putString("Claw Position", this.clawPositionString());
+        SmartDashboard.putBoolean("Claw Open", false);
     }
 
     public void extendPinchie() {
         this.pinchieDesiredPosition = PinchiePositions.Extended;
         this.pinchie.set(Value.kReverse);
         this.pinchieCurrentPosition = this.pinchieDesiredPosition;
-        SmartDashboard.putString("Pinchie Position", this.pinchiePositionString());
+        SmartDashboard.putBoolean("Pinchie Extended", false);
     }
 
     public void retractPinchie() {
         this.pinchieDesiredPosition = PinchiePositions.Retracted;
         this.pinchie.set(Value.kForward);
         this.pinchieCurrentPosition = this.pinchieDesiredPosition;
-        SmartDashboard.putString("Pinchie Position", this.pinchiePositionString());
+        SmartDashboard.putBoolean("Pinchie Extended", true);
     }
 
     public String clawPositionString() {

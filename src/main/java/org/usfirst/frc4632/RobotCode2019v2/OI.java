@@ -52,9 +52,9 @@ public class OI {
     // button.whenReleased(new ExampleCommand());
 
     // USe these constants to modify speed parameters
-    public static final double slow = 0.5;
-    public static final double normal = 0.7;
-    public static final double fast = 0.8;
+    public static final double slow = 0.6;
+    public static final double normal = 0.85;
+    public static final double fast = 1.0;
 
     // Store the current Sensitivity
     //private double sensitivity = OI.normal;
@@ -91,23 +91,23 @@ public class OI {
 
     public OI() {
         // SmartDashboard Buttons
-        SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
+        // SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
         SmartDashboard.putData("PinchieOpen", new PinchieOpen());
         SmartDashboard.putData("PinchieClose", new PinchieClose());
         SmartDashboard.putData("PinchieOpen", new PinchieExtend());
         SmartDashboard.putData("PinchieClose", new PinchieRetract());
-        SmartDashboard.putData("Raise Robot", new RobotRaise());
-        SmartDashboard.putData("Lower Robot", new RobotLower());
-        SmartDashboard.putData("Auto CLimb", new RobotAutoClimb());
+        // SmartDashboard.putData("Raise Robot", new RobotRaise());
+        // SmartDashboard.putData("Lower Robot", new RobotLower());
+        // SmartDashboard.putData("Auto CLimb", new RobotAutoClimb());
         // SmartDashboard.putData("All Wheel Drive", new RobotAllWheelDrive());
 
 
-        SmartDashboard.putData("FrontActuatorExtend", new FrontActuatorRaise());
-        SmartDashboard.putData("FrontActuatorRetract", new FrontActuatorLower());
-        SmartDashboard.putData("BackActuatorExtend", new BackActuatorRaise());
-        SmartDashboard.putData("BackActuatorRetract", new BackActuatorLower());
+        // SmartDashboard.putData("FrontActuatorExtend", new FrontActuatorRaise());
+        // SmartDashboard.putData("FrontActuatorRetract", new FrontActuatorLower());
+        // SmartDashboard.putData("BackActuatorExtend", new BackActuatorRaise());
+        // SmartDashboard.putData("BackActuatorRetract", new BackActuatorLower());
 
-        SmartDashboard.putData("Tare", new Tare());
+        // SmartDashboard.putData("Tare", new Tare());
 
         // SmartDashboard.putData("ClimberMove", new ClimberMove());
         // SmartDashboard.putData("ElevatorRaiseBottom", new ElevatorRaiseBottom());
@@ -141,16 +141,16 @@ public class OI {
 		dsButton7.whenPressed(new FrontActuatorRaise());
 
           // Provide a command for Button 8
-		 dsButton8.whenPressed(new RobotAutoClimb());
+		//  dsButton8.whenPressed(new RobotAutoClimb());
 
         // Provide a command for Button 9
-         dsButton9.whenPressed(new RobotRaise());
+        //  dsButton9.whenPressed(new RobotRaise());
 
         // Provide a command for Button 10
-        dsButton10.whenPressed(new BackActuatorRaise());
+        // dsButton10.whenPressed(new BackActuatorRaise());
 
         // Provide a command for Button 11
-        dsButton11.whenPressed(new BackActuatorLower());
+        // dsButton11.whenPressed(new BackActuatorLower());
 
         //Elevator Stick Buttons
 
@@ -206,16 +206,16 @@ public class OI {
 
         double sensitivity = OI.normal;
 
-        if ( this.dsButton1.get() ) {
+        if ( this.dsButton2.get() ) {
             sensitivity = OI.slow;
-        } else if ( this.dsButton2.get() ) {
+        } else if ( this.dsButton3.get() ) {
             sensitivity = OI.fast;
         }
     
         return sensitivity;
     }
 
-// Logic for Elevator controls
+    // Logic for Elevator controls
 
     public double getElevatorSpeed() {
 
@@ -234,10 +234,8 @@ public class OI {
     public String getElevatorForAction() {
 
         if ( this.esButton1.get() ) {
-            System.out.println("bottom");
             return "bottom";
         } else {
-            System.out.println("top");
             return "top"; 
         }
 

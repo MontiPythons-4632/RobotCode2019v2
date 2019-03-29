@@ -57,11 +57,11 @@ public class Elevator extends Subsystem {
     }
 
     public Elevator() {
-        bottom = new Spark(1);
+        bottom = new Spark(2);
         addChild("Bottom",bottom);
         bottom.setInverted(false);
         
-        top = new Spark(2);
+        top = new Spark(1);
         addChild("Top",top);
         top.setInverted(false);
 

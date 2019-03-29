@@ -83,7 +83,7 @@ public class Robot extends TimedRobot {
     
     
        // climber = new RobotLower();
-        climberLift.retractBack();
+        // climberLift.retractBack();
         climberLift.retractFront();
         pinchie.openClaw();
         pinchie.retractPinchie();
@@ -98,7 +98,7 @@ public class Robot extends TimedRobot {
         // Add commands to Autonomous Sendable Chooser
         chooser.setDefaultOption("Autonomous Command", new AutonomousCommand());
 
-        SmartDashboard.putData("Auto mode", chooser);
+        // SmartDashboard.putData("Auto mode", chooser);
         // SmartDashboard.putData(elevator);
         // SmartDashboard.putData(climberLift);
 
